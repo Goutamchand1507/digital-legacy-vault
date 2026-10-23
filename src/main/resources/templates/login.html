@@ -1,0 +1,46 @@
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login · LegacyVault</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="auth">
+<main class="card">
+    <h1>🔐 LegacyVault</h1>
+    <p>Sign in to your digital vault.</p>
+
+    <p class="ok" th:if="${param.registered}">
+        Account created. Sign in now.
+    </p>
+
+    <p class="err" th:if="${param.error}">
+        Incorrect email or password.
+    </p>
+
+    <form th:action="@{/login}" method="post" autocomplete="off">
+        <label for="username">Email</label>
+        <input
+            id="username"
+            name="username"
+            type="email"
+            autocomplete="off"
+            required>
+
+        <label for="password">Password</label>
+        <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="new-password"
+            required>
+
+        <button type="submit">Sign in</button>
+    </form>
+
+    <p>New user? <a th:href="@{/register}">Create account</a></p>
+</main>
+</body>
+</html>

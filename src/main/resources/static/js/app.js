@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',()=>document.querySelectorAll('textarea').forEach(t=>t.addEventListener('input',()=>{t.style.height='auto';t.style.height=Math.min(t.scrollHeight,360)+'px';})));
